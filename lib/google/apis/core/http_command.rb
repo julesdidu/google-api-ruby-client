@@ -287,6 +287,7 @@ module Google
             logger.debug { sprintf('Sending HTTP %s %s', method, url) }
             request_header = header.dup
             apply_request_options(request_header)
+
             http_res = client.request(method.to_s.upcase,
                                       url.to_s,
                                       query: nil,
