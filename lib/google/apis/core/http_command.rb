@@ -284,11 +284,9 @@ module Google
         def execute_once(client)
           body.rewind if body.respond_to?(:rewind)
           begin
-            p sprintf('Sending HTTP %s %s', method, url)
             logger.debug { sprintf('Sending HTTP %s %s', method, url) }
             request_header = header.dup
             apply_request_options(request_header)
-            ap request_header
             http_res = client.request(method.to_s.upcase,
                                       url.to_s,
                                       query: nil,
